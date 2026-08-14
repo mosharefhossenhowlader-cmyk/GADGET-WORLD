@@ -3,243 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEYON - Premium Gadget Store</title>
+    <title>GoValley - Online Shopping Store</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .brand-orange { background-color: #ff6600; }
-        .brand-orange-text { color: #ff6600; }
-        .brand-orange-border { border-color: #ff6600; }
-    </style>
 </head>
-<body class="bg-gray-50 text-gray-800 pb-24">
+<body class="bg-gray-50 text-gray-800 font-sans">
 
-    <!-- Header / Brand -->
-    <header class="bg-white shadow-sm py-4 px-6 sticky top-0 z-50 flex justify-between items-center">
-        <h1 class="text-2xl font-black tracking-wider text-black">MEYON</h1>
-        <a href="https://wa.me/8801336486494" target="_blank" class="text-green-600 font-bold text-sm flex items-center">
-            <i class="fa-brands fa-whatsapp text-lg mr-1"></i> Support
-        </a>
+    <!-- Top Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold text-indigo-600">GoValley</div>
+            <div class="flex items-center space-x-4">
+                <input type="text" placeholder="Search products..." class="border rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 hidden sm:block">
+                <a href="#signup" class="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">Sign Up</a>
+            </div>
+        </div>
     </header>
 
-    <!-- Main Container -->
-    <main class="max-w-md mx-auto p-4 space-y-6">
-
-        <!-- Hero Banner -->
-        <div class="bg-black text-white rounded-2xl p-6 text-center space-y-2 shadow-lg">
-            <span class="bg-orange-500 text-white text-xs font-bold px-2.5 py-1 rounded-full">NEW COLLECTION</span>
-            <h2 class="text-xl font-bold">Smart Gadgets for Better Living</h2>
-            <p class="text-gray-400 text-xs">Explore our premium selection of high-performance tech.</p>
+    <!-- Categories Section -->
+    <section class="max-w-7xl mx-auto px-4 py-8">
+        <h2 class="text-xl font-bold mb-6">Top Categories</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 text-center">
+            <div class="bg-white p-4 rounded-xl shadow-sm border hover:shadow-md transition cursor-pointer">
+                <div class="text-3xl mb-2">👗</div>
+                <p class="text-sm font-medium">Women Fashion</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border hover:shadow-md transition cursor-pointer">
+                <div class="text-3xl mb-2">👖</div>
+                <p class="text-sm font-medium">Women Bottom</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border hover:shadow-md transition cursor-pointer">
+                <div class="text-3xl mb-2">👕</div>
+                <p class="text-sm font-medium">Men Topwear</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border hover:shadow-md transition cursor-pointer">
+                <div class="text-3xl mb-2">👠</div>
+                <p class="text-sm font-medium">Women Footwear</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border hover:shadow-md transition cursor-pointer">
+                <div class="text-3xl mb-2">👖</div>
+                <p class="text-sm font-medium">Men Bottomwear</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border hover:shadow-md transition cursor-pointer">
+                <div class="text-3xl mb-2">🕶️</div>
+                <p class="text-sm font-medium">Men Accessories</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border hover:shadow-md transition cursor-pointer">
+                <div class="text-3xl mb-2">👞</div>
+                <p class="text-sm font-medium">Men Footwear</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border hover:shadow-md transition cursor-pointer">
+                <div class="text-3xl mb-2">💍</div>
+                <p class="text-sm font-medium">Women Accessories</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border hover:shadow-md transition cursor-pointer">
+                <div class="text-3xl mb-2">✨</div>
+                <p class="text-sm font-medium">Health & Beauty</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border hover:shadow-md transition cursor-pointer">
+                <div class="text-3xl mb-2">👚</div>
+                <p class="text-sm font-medium">Kids Kurti</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border hover:shadow-md transition cursor-pointer">
+                <div class="text-3xl mb-2">🍼</div>
+                <p class="text-sm font-medium">Baby Accessories</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-sm border hover:shadow-md transition cursor-pointer">
+                <div class="text-3xl mb-2">❄️</div>
+                <p class="text-sm font-medium">Baby Winter Wear</p>
+            </div>
         </div>
+    </section>
 
-        <!-- Products Section Title -->
-        <div class="flex justify-between items-center">
-            <h3 class="text-lg font-bold text-gray-900">Featured Products</h3>
-            <span class="text-xs text-orange-600 font-semibold">Free Delivery on All Items</span>
+    <!-- Features Banner -->
+    <section class="bg-indigo-50 py-6 my-8">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div class="p-4 bg-white rounded-lg shadow-sm">
+                <h3 class="font-bold text-indigo-600">Cash On Delivery</h3>
+                <p class="text-xs text-gray-500">Pay when you receive</p>
+            </div>
+            <div class="p-4 bg-white rounded-lg shadow-sm">
+                <h3 class="font-bold text-indigo-600">Instant Return</h3>
+                <p class="text-xs text-gray-500">Hassle-free return policy</p>
+            </div>
+            <div class="p-4 bg-white rounded-lg shadow-sm">
+                <h3 class="font-bold text-indigo-600">Delivery 48hrs</h3>
+                <p class="text-xs text-gray-500">Super fast shipping</p>
+            </div>
+            <div class="p-4 bg-white rounded-lg shadow-sm">
+                <h3 class="font-bold text-indigo-600">Best Price Deal</h3>
+                <p class="text-xs text-gray-500">Guaranteed savings</p>
+            </div>
         </div>
+    </section>
 
-        <!-- Product Grid (Multiple Products) -->
-        <div class="grid grid-cols-2 gap-4">
-
+    <!-- Featured Products Section -->
+    <section class="max-w-7xl mx-auto px-4 py-8">
+        <h2 class="text-2xl font-bold mb-6">Featured Products</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            
             <!-- Product 1 -->
-            <div class="bg-white rounded-2xl shadow-md overflow-hidden p-3 flex flex-col justify-between">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=400&q=80" alt="Mini Turbo Fan" class="w-full h-36 object-cover rounded-xl mb-2">
-                    <h4 class="font-bold text-sm text-gray-900">MEYON Mini Turbo Fan</h4>
-                    <p class="text-gray-500 text-xs mt-0.5">5-Speed, LED Display</p>
-                </div>
-                <div class="mt-3">
-                    <div class="flex items-center space-x-2 mb-2">
-                        <span class="text-gray-400 line-through text-xs">৳700</span>
-                        <span class="text-base font-black brand-orange-text">৳620</span>
-                    </div>
-                    <button onclick="selectProduct('MEYON Mini Turbo Fan', 620)" class="w-full brand-orange text-white text-xs font-bold py-2 rounded-xl shadow hover:opacity-90 transition">
-                        ORDER NOW
-                    </button>
+            <div class="bg-white rounded-xl shadow-sm border overflow-hidden relative">
+                <span class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">15% OFF</span>
+                <div class="h-48 bg-gray-100 flex items-center justify-center text-gray-400">Product Image</div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-sm mb-2">Authentic Wellness & Hygiene</h3>
+                    <button class="w-full bg-indigo-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">Buy Now</button>
                 </div>
             </div>
 
             <!-- Product 2 -->
-            <div class="bg-white rounded-2xl shadow-md overflow-hidden p-3 flex flex-col justify-between">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=400&q=80" alt="Smart Watch" class="w-full h-36 object-cover rounded-xl mb-2">
-                    <h4 class="font-bold text-sm text-gray-900">MEYON Smart Watch Ultra</h4>
-                    <p class="text-gray-500 text-xs mt-0.5">Bluetooth Calling, Amoled</p>
-                </div>
-                <div class="mt-3">
-                    <div class="flex items-center space-x-2 mb-2">
-                        <span class="text-gray-400 line-through text-xs">৳1800</span>
-                        <span class="text-base font-black brand-orange-text">৳1490</span>
-                    </div>
-                    <button onclick="selectProduct('MEYON Smart Watch Ultra', 1490)" class="w-full brand-orange text-white text-xs font-bold py-2 rounded-xl shadow hover:opacity-90 transition">
-                        ORDER NOW
-                    </button>
+            <div class="bg-white rounded-xl shadow-sm border overflow-hidden relative">
+                <span class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">15% OFF</span>
+                <div class="h-48 bg-gray-100 flex items-center justify-center text-gray-400">Product Image</div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-sm mb-2">Trendy Women Flat & Sandals</h3>
+                    <button class="w-full bg-indigo-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">Buy Now</button>
                 </div>
             </div>
 
             <!-- Product 3 -->
-            <div class="bg-white rounded-2xl shadow-md overflow-hidden p-3 flex flex-col justify-between">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=400&q=80" alt="Wireless Earbuds" class="w-full h-36 object-cover rounded-xl mb-2">
-                    <h4 class="font-bold text-sm text-gray-900">MEYON Pro Pods TWS</h4>
-                    <p class="text-gray-500 text-xs mt-0.5">Deep Bass, 24H Battery</p>
-                </div>
-                <div class="mt-3">
-                    <div class="flex items-center space-x-2 mb-2">
-                        <span class="text-gray-400 line-through text-xs">৳1200</span>
-                        <span class="text-base font-black brand-orange-text">৳950</span>
-                    </div>
-                    <button onclick="selectProduct('MEYON Pro Pods TWS', 950)" class="w-full brand-orange text-white text-xs font-bold py-2 rounded-xl shadow hover:opacity-90 transition">
-                        ORDER NOW
-                    </button>
+            <div class="bg-white rounded-xl shadow-sm border overflow-hidden relative">
+                <span class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">30% OFF</span>
+                <div class="h-48 bg-gray-100 flex items-center justify-center text-gray-400">Product Image</div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-sm mb-2">Trendy Men Caps & Hats</h3>
+                    <button class="w-full bg-indigo-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">Buy Now</button>
                 </div>
             </div>
 
             <!-- Product 4 -->
-            <div class="bg-white rounded-2xl shadow-md overflow-hidden p-3 flex flex-col justify-between">
-                <div>
-                    <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=400&q=80" alt="Wireless Headphone" class="w-full h-36 object-cover rounded-xl mb-2">
-                    <h4 class="font-bold text-sm text-gray-900">MEYON Wireless Bass</h4>
-                    <p class="text-gray-500 text-xs mt-0.5">Over-Ear, Noise Cancellation</p>
-                </div>
-                <div class="mt-3">
-                    <div class="flex items-center space-x-2 mb-2">
-                        <span class="text-gray-400 line-through text-xs">৳2200</span>
-                        <span class="text-base font-black brand-orange-text">৳1850</span>
-                    </div>
-                    <button onclick="selectProduct('MEYON Wireless Bass', 1850)" class="w-full brand-orange text-white text-xs font-bold py-2 rounded-xl shadow hover:opacity-90 transition">
-                        ORDER NOW
-                    </button>
+            <div class="bg-white rounded-xl shadow-sm border overflow-hidden relative">
+                <span class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">40% OFF</span>
+                <div class="h-48 bg-gray-100 flex items-center justify-center text-gray-400">Product Image</div>
+                <div class="p-4">
+                    <h3 class="font-semibold text-sm mb-2">Necessary Baby Accessories</h3>
+                    <button class="w-full bg-indigo-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-indigo-700 transition">Buy Now</button>
                 </div>
             </div>
 
         </div>
+    </section>
 
-        <!-- Order Form Section -->
-        <div id="orderSection" class="bg-white rounded-2xl shadow-md p-5 space-y-4">
-            <h3 class="text-lg font-bold border-b pb-2">Checkout Order</h3>
-            
-            <form id="checkoutForm" class="space-y-4">
-                <div>
-                    <label class="block text-sm font-semibold mb-1">Selected Product *</label>
-                    <input type="text" id="selectedProduct" readonly value="MEYON Mini Turbo Fan" class="w-full border rounded-xl p-3 text-sm bg-gray-100 font-bold text-gray-700 focus:outline-none">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-semibold mb-1">Quantity *</label>
-                    <input type="number" id="quantity" value="1" min="1" class="w-full border rounded-xl p-3 text-sm focus:outline-none focus:border-orange-500">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-semibold mb-1">Full Name *</label>
-                    <input type="text" required placeholder="Enter your full name" class="w-full border rounded-xl p-3 text-sm focus:outline-none focus:border-orange-500">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-semibold mb-1">Phone Number *</label>
-                    <input type="tel" required placeholder="01XXXXXXXXX" class="w-full border rounded-xl p-3 text-sm focus:outline-none focus:border-orange-500">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-semibold mb-1">Delivery Address *</label>
-                    <textarea required rows="2" placeholder="House/Road, Area, City" class="w-full border rounded-xl p-3 text-sm focus:outline-none focus:border-orange-500"></textarea>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-semibold mb-1">Payment Method</label>
-                    <select id="paymentMethod" class="w-full border rounded-xl p-3 text-sm focus:outline-none focus:border-orange-500 bg-white">
-                        <option value="Cash on Delivery">Cash on Delivery</option>
-                        <option value="Bkash">Bkash (Manual)</option>
-                        <option value="Nagad">Nagad (Manual)</option>
-                        <option value="Rocket">Rocket (Manual)</option>
-                    </select>
-                </div>
-
-                <div id="trxIdContainer" class="hidden">
-                    <label class="block text-sm font-semibold mb-1 text-orange-600">Transaction ID (TRX ID) *</label>
-                    <input type="text" id="trxId" placeholder="Enter your transaction ID" class="w-full border rounded-xl p-3 text-sm focus:outline-none focus:border-orange-500 bg-orange-50">
-                </div>
-
-                <div class="bg-orange-50 p-3 rounded-xl flex justify-between items-center">
-                    <span class="font-semibold text-sm">Total Payable:</span>
-                    <span class="text-xl font-black brand-orange-text" id="totalPrice">৳620</span>
-                </div>
-
-                <button type="submit" class="w-full brand-orange text-white font-bold py-3.5 rounded-xl shadow-lg hover:opacity-90 transition">
-                    CONFIRM ORDER
-                </button>
-            </form>
-        </div>
-
-    </main>
-
-    <!-- Footer Section -->
-    <footer class="bg-white border-t mt-12 py-8 px-4 text-sm text-gray-600 space-y-4 max-w-md mx-auto">
-        <div class="space-y-2">
-            <h4 class="font-bold text-black text-base">MEYON</h4>
-            <p class="text-xs text-gray-500">Smart products. Better everyday living.</p>
-            <p><i class="fa-solid fa-phone brand-orange-text mr-2"></i> 01336486494</p>
-            <p><i class="fa-brands fa-whatsapp text-green-600 mr-2"></i> WhatsApp 01336486494</p>
-        </div>
-        <div class="border-t pt-4 text-center text-xs text-gray-400">
-            <p>© 2026 MEYON. All rights reserved.</p>
-        </div>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white text-center py-6 mt-12">
+        <p class="text-sm">&copy; 2026 GoValley. All rights reserved.</p>
     </footer>
 
-    <!-- Fixed Bottom Action Bar -->
-    <div class="fixed bottom-0 left-0 right-0 bg-white border-t shadow-2xl p-3 flex justify-around items-center z-50">
-        <a href="#orderSection" class="flex-1 bg-black text-white text-center py-3 rounded-xl font-bold text-sm mx-1 shadow flex items-center justify-center">
-            <i class="fa-solid fa-bag-shopping mr-2"></i> ORDER NOW
-        </a>
-        <a href="https://wa.me/8801336486494" target="_blank" class="flex-1 bg-green-600 text-white text-center py-3 rounded-xl font-bold text-sm mx-1 shadow flex items-center justify-center">
-            <i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp
-        </a>
-    </div>
-
-    <!-- Scripting for Dynamic Pricing and Selection -->
-    <script>
-        let currentUnitPrice = 620;
-        const selectedProductInput = document.getElementById('selectedProduct');
-        const quantityInput = document.getElementById('quantity');
-        const totalPriceEl = document.getElementById('totalPrice');
-        const paymentMethod = document.getElementById('paymentMethod');
-        const trxIdContainer = document.getElementById('trxIdContainer');
-        const trxIdInput = document.getElementById('trxId');
-
-        function selectProduct(name, price) {
-            currentUnitPrice = price;
-            selectedProductInput.value = name;
-            updateTotal();
-            document.getElementById('orderSection').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function updateTotal() {
-            let qty = parseInt(quantityInput.value) || 1;
-            let total = qty * currentUnitPrice;
-            totalPriceEl.innerText = '৳' + total;
-        }
-
-        quantityInput.addEventListener('input', updateTotal);
-
-        paymentMethod.addEventListener('change', function() {
-            if(paymentMethod.value !== 'Cash on Delivery') {
-                trxIdContainer.classList.remove('hidden');
-                trxIdInput.required = true;
-            } else {
-                trxIdContainer.classList.add('hidden');
-                trxIdInput.required = false;
-            }
-        });
-
-        document.getElementById('checkoutForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you! Your order has been placed successfully.');
-            this.reset();
-            currentUnitPrice = 620;
-            selectedProductInput.value = 'MEYON Mini Turbo Fan';
-            trxIdContainer.classList.add('hidden');
-            totalPriceEl.innerText = '৳620';
-        });
-    </script>
 </body>
 </html>
