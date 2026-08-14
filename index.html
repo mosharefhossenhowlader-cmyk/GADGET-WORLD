@@ -12,7 +12,7 @@
         .brand-orange-border { border-color: #ff6600; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 pb-24">
+<body class="bg-gray-50 text-gray-800 pb-28">
 
     <!-- Header / Brand -->
     <header class="bg-white shadow-sm py-4 text-center sticky top-0 z-50">
@@ -51,10 +51,10 @@
         </div>
 
         <!-- Order Form Section -->
-        <div class="bg-white rounded-2xl shadow-md p-5 space-y-4">
+        <div id="orderForm" class="bg-white rounded-2xl shadow-md p-5 space-y-4">
             <h3 class="text-lg font-bold border-b pb-2">Place Your Order</h3>
             
-            <form id="orderForm" class="space-y-4">
+            <form id="checkoutForm" class="space-y-4">
                 <div>
                     <label class="block text-sm font-semibold mb-1">Select Color</label>
                     <div class="grid grid-cols-2 gap-3">
@@ -67,6 +67,11 @@
                             <span class="font-medium text-sm">White/Silver</span>
                         </label>
                     </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Quantity *</label>
+                    <input type="number" id="quantity" value="1" min="1" class="w-full border rounded-xl p-3 text-sm focus:outline-none focus:border-orange-500">
                 </div>
 
                 <div>
@@ -84,9 +89,24 @@
                     <textarea required rows="2" placeholder="House/Road, Area, City" class="w-full border rounded-xl p-3 text-sm focus:outline-none focus:border-orange-500"></textarea>
                 </div>
 
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Payment Method</label>
+                    <select id="paymentMethod" class="w-full border rounded-xl p-3 text-sm focus:outline-none focus:border-orange-500 bg-white">
+                        <option value="Cash on Delivery">Cash on Delivery</option>
+                        <option value="Bkash">Bkash (Manual)</option>
+                        <option value="Nagad">Nagad (Manual)</option>
+                        <option value="Rocket">Rocket (Manual)</option>
+                    </select>
+                </div>
+
+                <div id="trxIdContainer" class="hidden">
+                    <label class="block text-sm font-semibold mb-1 text-orange-600">Transaction ID (TRX ID) *</label>
+                    <input type="text" id="trxId" placeholder="Enter your transaction ID" class="w-full border rounded-xl p-3 text-sm focus:outline-none focus:border-orange-500 bg-orange-50">
+                </div>
+
                 <div class="bg-orange-50 p-3 rounded-xl flex justify-between items-center">
                     <span class="font-semibold text-sm">Total Payable:</span>
-                    <span class="text-xl font-black brand-orange-text">৳620</span>
+                    <span class="text-xl font-black brand-orange-text" id="totalPrice">৳620</span>
                 </div>
 
                 <button type="submit" class="w-full brand-orange text-white font-bold py-3.5 rounded-xl shadow-lg hover:opacity-90 transition">
@@ -97,45 +117,60 @@
 
     </main>
 
+    <!-- Footer Section -->
+    <footer class="bg-white border-t mt-12 py-8 px-4 text-sm text-gray-600 space-y-4 max-w-md mx-auto">
+        <div class="space-y-2">
+            <h4 class="font-bold text-black text-base">MEYON</h4>
+            <p class="text-xs text-gray-500">Smart products. Better everyday living.</p>
+            <p><i class="fa-solid fa-phone brand-orange-text mr-2"></i> 01336486494</p>
+            <p><i class="fa-brands fa-whatsapp text-green-600 mr-2"></i> WhatsApp 01336486494</p>
+        </div>
+        <div class="border-t pt-4 text-center text-xs text-gray-400">
+            <p>© 2026 MEYON. All rights reserved.</p>
+        </div>
+    </footer>
+
     <!-- Fixed Bottom Action Bar -->
-    <div class="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg p-3 flex justify-around items-center z-50">
-        <a href="#orderForm" class="flex-1 bg-black text-white text-center py-3 rounded-xl font-bold text-sm mx-1 shadow">
-            <i class="fa-solid fa-bag-shopping mr-1"></i> ORDER NOW
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t shadow-2xl p-3 flex justify-around items-center z-50">
+        <a href="#orderForm" class="flex-1 bg-black text-white text-center py-3 rounded-xl font-bold text-sm mx-1 shadow flex items-center justify-center">
+            <i class="fa-solid fa-bag-shopping mr-2"></i> ORDER NOW
         </a>
-        <a href="https://wa.me/8801700000000" target="_blank" class="flex-1 bg-green-600 text-white text-center py-3 rounded-xl font-bold text-sm mx-1 shadow">
-            <i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp
+        <a href="https://wa.me/8801336486494" target="_blank" class="flex-1 bg-green-600 text-white text-center py-3 rounded-xl font-bold text-sm mx-1 shadow flex items-center justify-center">
+            <i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp
         </a>
     </div>
 
+    <!-- Script to handle dynamic price and payment method -->
+    <script>
+        const quantityInput = document.getElementById('quantity');
+        const totalPriceEl = document.getElementById('totalPrice');
+        const paymentMethod = document.getElementById('paymentMethod');
+        const trxIdContainer = document.getElementById('trxIdContainer');
+        const trxIdInput = document.getElementById('trxId');
+
+        quantityInput.addEventListener('input', function() {
+            let qty = parseInt(quantityInput.value) || 1;
+            let total = qty * 620;
+            totalPriceEl.innerText = '৳' + total;
+        });
+
+        paymentMethod.addEventListener('change', function() {
+            if(paymentMethod.value !== 'Cash on Delivery') {
+                trxIdContainer.classList.remove('hidden');
+                trxIdInput.required = true;
+            } else {
+                trxIdContainer.classList.add('hidden');
+                trxIdInput.required = false;
+            }
+        });
+
+        document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Your order has been placed successfully.');
+            this.reset();
+            trxIdContainer.classList.add('hidden');
+            totalPriceEl.innerText = '৳620';
+        });
+    </script>
 </body>
 </html>
-">
-<div class="footergrid">
-<div><img class="footer-brand-logo" src="assets/meyon-logo.png" alt="MEYON"><p>Smart products. Better everyday living.</p><p>☎ <a href="tel:01336486494">01336486494</a><br>◯ WhatsApp <a href="https://wa.me/8801336486494" target="_blank">01336486494</a></p></div>
-<div><h4>SUPPORT</h4><p>Contact Us</p><p>Delivery Information</p><p>Payment Verification</p><p>FAQ</p></div>
-<div><h4>SHOP</h4><p>Mini Turbo Fan</p><p>All Products</p></div>
-</div><div class="copy">© 2026 MEYON. All rights reserved.</div>
-</div></footer>
-
-<div class="sticky"><button class="btn primary" onclick="document.getElementById('order').scrollIntoView()">ORDER NOW</button><a class="btn whatsapp" id="stickyWa" href="#" target="_blank">WhatsApp</a></div>
-
-<script>
-const PRICE=620, phone="8801336486494";
-let qty=1, color="Black";
-const q=document.getElementById('qty'), total=document.getElementById('total'), formQty=document.getElementById('formQty');
-function update(){q.textContent=qty;total.textContent="৳"+(qty*PRICE).toLocaleString();formQty.value=qty;updateWA();}
-function updateWA(){
- const msg=`Hello MEYON, I want to order the Mini Turbo Fan.%0AColor: ${encodeURIComponent(color)}%0AQuantity: ${qty}%0ATotal: ৳${qty*PRICE}`;
- const url=`https://wa.me/${phone}?text=${msg}`;
- document.getElementById('waBtn').href=url;document.getElementById('stickyWa').href=url;
-}
-document.getElementById('plus').onclick=()=>{qty++;update()};
-document.getElementById('minus').onclick=()=>{if(qty>1){qty--;update()}};
-document.querySelectorAll('.color').forEach(b=>b.onclick=()=>{document.querySelectorAll('.color').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');color=b.dataset.color;document.getElementById('formColor').value=color;updateWA()});
-document.getElementById('formQty').oninput=e=>{qty=Math.max(1,parseInt(e.target.value||1));update()};
-document.querySelectorAll('.thumb').forEach(t=>t.onclick=()=>{document.querySelectorAll('.thumb').forEach(x=>x.classList.remove('active'));t.classList.add('active');document.getElementById('mainImage').src=t.dataset.img});
-document.getElementById('orderBtn').onclick=()=>document.getElementById('order').scrollIntoView({behavior:'smooth'});
-document.getElementById('orderForm').onsubmit=(e)=>{e.preventDefault();document.getElementById('status').style.display='block';document.getElementById('status').scrollIntoView({behavior:'smooth',block:'center'});};
-update();
-</script>
-</body></html>
