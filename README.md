@@ -1,526 +1,91 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+                        <div>
+                            <p class="font-bold text-white" <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>MEYON Mini Turbo Fan | Portable Cooling & Digital LED Display</title>
-    <meta name="description" content="DiscoverMini Turbo Fan featuring 5-speed control, digital LED display, and portable handheld design. Premium personal cooling across Bangladesh for ৳620 delivery included.">
-    
-    <!-- Open Graph Metadata -->
-    <meta property="og:title" content="MEYON Mini Turbo Fan | Portable Cooling">
-    <meta property="og:description" content="Powerful Cooling. Compact Freedom. 5-speed control, digital display, delivery included nationwide in Bangladesh for ৳620.">
-    <meta property="og:type" content="product">
-    <meta property="og:locale" content="en_US">
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        meyon: {
-                            black: '#0A0A0A',
-                            white: '#121212',
-                            card: '#1A1A1A',
-                            border: '#2A2A2A',
-                            orange: '#FF6B00',
-                            orangeHover: '#E56000',
-                            orangeLight: 'rgba(255, 107, 0, 0.1)',
-                            gray: '#888888',
-                            lightGray: '#F4F4F5'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Digital Clock</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0A0A0A;
-            color: #FFFFFF;
-            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+            color: #ffffff;
         }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+
+        .clock-container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
         }
-        ::-webkit-scrollbar-track {
-            background: #121212;
+
+        .time {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #00ffcc;
+            text-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
         }
-        ::-webkit-scrollbar-thumb {
-            background: #2A2A2A;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #FF6B00;
-        }
-        .glass-panel {
-            background: rgba(26, 26, 26, 0.75);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+
+        .date {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            color: #b0b0c3;
+            letter-spacing: 1px;
         }
     </style>
 </head>
-<body class="bg-meyon-white text-white antialiased selection:bg-meyon-orange selection:text-white">
+<body>
 
-    <!-- CONFIGURATION SCRIPT & DATA STORE -->
-    <script>
-        const CONFIG = {
-            PRODUCT_NAME: "Mini Turbo Fan",
-            REGULAR_PRICE: 1000,
-            OFFER_PRICE: 620,
-            PHONE_NUMBER: "01336486494",
-            WHATSAPP_NUMBER: "01336486494",
-            UNIT_PRICE: 620,
-            AVAILABLE_COLORS: [
-                { id: 'black', name: 'Black', hex: '#111111', badgeBg: 'bg-zinc-900 border-zinc-700' },
-                { id: 'white-silver', name: 'White/Silver', hex: '#E4E4E7', badgeBg: 'bg-zinc-200 text-zinc-900 border-zinc-300' }
-            ],
-            PRODUCT_IMAGES: [
-                { id: 1, url: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=800&q=80', alt: 'MEYON Mini Turbo Fan - Main View' },
-                { id: 2, url: 'https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&w=800&q=80', alt: 'MEYON Mini Turbo Fan - Angle View' },
-                { id: 3, url: 'https://images.unsplash.com/photo-1572d43171822-0d173c33282b?auto=format&fit=crop&w=800&q=80', alt: 'MEYON Mini Turbo Fan - Digital Display' }
-            ],
-            // NOTE: Keep secret credentials server-side in production. Frontend sends to secure backend/webhook endpoint.
-            TELEGRAM_CONFIG: {
-                // Configure your serverless function or webhook endpoint URL here
-                ENDPOINT: "https://api.telegram.org/bot[YOUR_BOT_TOKEN]/sendMessage",
-                CHAT_ID: "[YOUR_CHAT_ID]"
-            }
-        };
-    </script>
-
-    <!-- ANNOUNCEMENT BAR -->
-    <div class="bg-meyon-orange text-white text-xs sm:text-sm font-semibold py-2 px-4 text-center tracking-wide uppercase flex items-center justify-center gap-2">
-        <i class="fa-solid fa-bolt-lightning text-white animate-pulse"></i>
-        <span>Special Offer: Free Nationwide Delivery Across Bangladesh Included!</span>
+    <div class="clock-container">
+        <div class="time" id="clock">00:00:00</div>
+        <div class="date" id="date">Loading date...</div>
     </div>
 
-    <!-- HEADER / NAVIGATION -->
-    <header class="sticky top-0 z-40 bg-meyon-black/90 backdrop-blur-md border-b border-meyon-border transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-2 group">
-                <div class="bg-white text-meyon-black font-extrabold text-xl sm:text-2xl px-3 py-1 rounded tracking-tighter transition-transform group-hover:scale-105">
-                    MEYON
-                </div>
-            </a>
-
-            <!-- Desktop Nav Links -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-400">
-                <a href="#features" class="hover:text-meyon-orange transition-colors">Features</a>
-                <a href="#details" class="hover:text-meyon-orange transition-colors">Specifications</a>
-                <a href="#faq" class="hover:text-meyon-orange transition-colors">FAQ</a>
-                <a href="#order-section" class="hover:text-meyon-orange transition-colors">Order Form</a>
-            </nav>
-
-            <!-- Quick Header Actions -->
-            <div class="flex items-center gap-3">
-                <a href="tel:01336486494" class="hidden sm:inline-flex items-center gap-2 bg-meyon-dark border border-meyon-border px-4 py-2 rounded-lg text-xs font-semibold text-white hover:border-meyon-orange transition-all">
-                    <i class="fa-solid fa-phone text-meyon-orange"></i>
-                    <span>01336486494</span>
-                </a>
-                <a href="#order-section" class="bg-meyon-orange hover:bg-meyon-orangeHover text-white px-4 sm:px-5 py-2 rounded-lg text-xs sm:text-sm font-bold tracking-wide transition-all shadow-lg shadow-meyon-orange/20">
-                    Order Now
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <!-- MAIN HERO / PRODUCT SECTION -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+    <script>
+        function updateClock() {
+            const now = new Date();
             
-            <!-- LEFT COLUMN: PRODUCT GALLERY (Desktop 7 cols, Mobile 12 cols) -->
-            <div class="lg:col-span-7 space-y-4">
-                <!-- Main Image Display -->
-                <div class="relative rounded-2xl overflow-hidden bg-meyon-card border border-meyon-border aspect-square sm:aspect-[4/3] flex items-center justify-center group shadow-2xl">
-                    <span class="absolute top-4 left-4 z-10 bg-meyon-orange text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-md">
-                        Special Offer
-                    </span>
-                    <img id="main-product-image" src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=800&q=80" alt="MEYON Mini Turbo Fan" class="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105">
-                </div>
-
-                <!-- Thumbnail Gallery -->
-                <div class="grid grid-cols-3 gap-3 sm:gap-4">
-                    <button onclick="switchImage(0, this)" class="thumb-btn active-thumb rounded-xl overflow-hidden bg-meyon-card border-2 border-meyon-orange aspect-square transition-all focus:outline-none">
-                        <img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?auto=format&fit=crop&w=300&q=80" alt="Thumbnail 1" class="w-full h-full object-cover">
-                    </button>
-                    <button onclick="switchImage(1, this)" class="thumb-btn rounded-xl overflow-hidden bg-meyon-card border-2 border-transparent hover:border-zinc-500 aspect-square transition-all focus:outline-none">
-                        <img src="https://images.unsplash.com/photo-1621939514649-280e2ee25f60?auto=format&fit=crop&w=300&q=80" alt="Thumbnail 2" class="w-full h-full object-cover">
-                    </button>
-                    <button onclick="switchImage(2, this)" class="thumb-btn rounded-xl overflow-hidden bg-meyon-card border-2 border-transparent hover:border-zinc-500 aspect-square transition-all focus:outline-none">
-                        <img src="https://images.unsplash.com/photo-1572d43171822-0d173c33282b?auto=format&fit=crop&w=300&q=80" alt="Thumbnail 3" class="w-full h-full object-cover">
-                    </button>
-                </div>
-
-                <!-- Trust Badges Bar -->
-                <div class="grid grid-cols-3 gap-3 pt-4 text-center">
-                    <div class="bg-meyon-card border border-meyon-border p-3 rounded-xl">
-                        <i class="fa-solid fa-truck-fast text-meyon-orange text-lg mb-1"></i>
-                        <p class="text-xs font-semibold text-zinc-300">Fast Delivery</p>
-                        <p class="text-[10px] text-zinc-500">Across Bangladesh</p>
-                    </div>
-                    <div class="bg-meyon-card border border-meyon-border p-3 rounded-xl">
-                        <i class="fa-solid fa-shield-halved text-meyon-orange text-lg mb-1"></i>
-                        <p class="text-xs font-semibold text-zinc-300">Secure Payment</p>
-                        <p class="text-[10px] text-zinc-500">Rocket Verification</p>
-                    </div>
-                    <div class="bg-meyon-card border border-meyon-border p-3 rounded-xl">
-                        <i class="fa-solid fa-headset text-meyon-orange text-lg mb-1"></i>
-                        <p class="text-xs font-semibold text-zinc-300">Dedicated Support</p>
-                        <p class="text-[10px] text-zinc-500">01336486494</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RIGHT COLUMN: PRODUCT INFO & PURCHASE CONTROLS (Desktop 5 cols, Mobile 12 cols) -->
-            <div class="lg:col-span-5 space-y-6">
-                <div>
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="bg-meyon-orange/10 text-meyon-orange text-xs font-semibold px-2.5 py-1 rounded-md border border-meyon-orange/20">MEYON Official Product</span>
-                        <span class="text-emerald-400 text-xs font-medium flex items-center gap-1"><i class="fa-solid fa-circle text-[8px]"></i> In Stock</span>
-                    </div>
-                    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white mb-2">
-                        Mini Turbo Fan
-                    </h1>
-                    <p class="text-lg sm:text-xl font-semibold text-zinc-300">
-                        Powerful Cooling. Compact Freedom.
-                    </p>
-                </div>
-
-                <!-- Description -->
-                <p class="text-sm text-zinc-400 leading-relaxed">
-                    Designed for effortless everyday use. Experience reliable personal cooling with adjustable airflow, a sleek digital LED display, and a portable handheld structure built for home, office, and outdoor convenience.
-                </p>
-
-                <!-- Price Box -->
-                <div class="bg-meyon-card border border-meyon-border p-4 rounded-xl flex items-center justify-between">
-                    <div>
-                        <span class="text-xs text-zinc-500 uppercase font-semibold tracking-wider block mb-1">Price Structure</span>
-                        <div class="flex items-baseline gap-3">
-                            <span class="text-2xl sm:text-3xl font-extrabold text-white" id="display-unit-price">৳620</span>
-                            <span class="text-sm text-zinc-500 line-through">৳700</span>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <span class="bg-emerald-500/10 text-emerald-400 text-xs font-semibold px-3 py-1 rounded-lg border border-emerald-500/20">
-                            Delivery Included
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Color Selector -->
-                <div class="space-y-3">
-                    <label class="block text-sm font-medium text-zinc-300">
-                        Select Color: <span id="selected-color-name" class="font-bold text-white">Black</span>
-                    </label>
-                    <div class="grid grid-cols-2 gap-3" id="color-options-container">
-                        <!-- Black Option -->
-                        <button type="button" onclick="selectColor('black', 'Black', this)" class="color-btn active-color flex items-center gap-3 p-3 rounded-xl bg-meyon-card border-2 border-meyon-orange text-left transition-all">
-                            <span class="w-6 h-6 rounded-full bg-zinc-900 border border-zinc-700 flex-shrink-0"></span>
-                            <div>
-                                <p class="text-sm font-semibold text-white">Black</p>
-                                <p class="text-[11px] text-zinc-400">Matte Finish</p>
-                            </div>
-                        </button>
-                        <!-- White/Silver Option -->
-                        <button type="button" onclick="selectColor('white-silver', 'White/Silver', this)" class="color-btn flex items-center gap-3 p-3 rounded-xl bg-meyon-card border-2 border-meyon-border text-left transition-all hover:border-zinc-600">
-                            <span class="w-6 h-6 rounded-full bg-zinc-200 border border-zinc-300 flex-shrink-0"></span>
-                            <div>
-                                <p class="text-sm font-semibold text-white">White/Silver</p>
-                                <p class="text-[11px] text-zinc-400">Clean Accent</p>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Quantity Selector -->
-                <div class="space-y-3">
-                    <label class="block text-sm font-medium text-zinc-300">Select Quantity:</label>
-                    <div class="flex items-center justify-between bg-meyon-card border border-meyon-border p-3 rounded-xl">
-                        <div class="flex items-center gap-4">
-                            <button type="button" onclick="updateQuantity(-1)" class="w-10 h-10 rounded-lg bg-meyon-dark border border-meyon-border text-white font-bold flex items-center justify-center hover:bg-zinc-800 transition-colors">
-                                <i class="fa-solid fa-minus text-xs"></i>
-                            </button>
-                            <span id="quantity-display" class="text-lg font-bold w-6 text-center">1</span>
-                            <button type="button" onclick="updateQuantity(1)" class="w-10 h-10 rounded-lg bg-meyon-dark border border-meyon-border text-white font-bold flex items-center justify-center hover:bg-zinc-800 transition-colors">
-                                <i class="fa-solid fa-plus text-xs"></i>
-                            </button>
-                        </div>
-                        <div class="text-right">
-                            <span class="text-xs text-zinc-500 block">Total Amount</span>
-                            <span id="total-price-display" class="text-lg font-extrabold text-meyon-orange">৳620</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Action Buttons: Order Now, WhatsApp, Call -->
-                <div class="space-y-3 pt-2">
-                    <a href="#order-section" class="w-full bg-meyon-orange hover:bg-meyon-orangeHover text-white font-bold py-4 px-6 rounded-xl transition-all shadow-lg shadow-meyon-orange/25 flex items-center justify-center gap-3 text-base sm:text-lg tracking-wide">
-                        <i class="fa-solid fa-bag-shopping"></i>
-                        <span>ORDER NOW</span>
-                    </a>
-
-                    <div class="grid grid-cols-2 gap-3">
-                        <button type="button" onclick="openWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm">
-                            <i class="fa-brands fa-whatsapp text-lg"></i>
-                            <span>Order on WhatsApp</span>
-                        </button>
-                        <a href="tel:01336486494" class="w-full bg-meyon-card hover:bg-zinc-800 border border-meyon-border text-white font-semibold py-3 px-4 rounded-xl transition-all flex items-center justify-center gap-2 text-sm">
-                            <i class="fa-solid fa-phone text-meyon-orange"></i>
-                            <span>Call to Order</span>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </main>
-
-    <!-- PRODUCT FEATURES SECTION -->
-    <section id="features" class="bg-meyon-dark border-t border-b border-meyon-border py-16 mt-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <span class="text-meyon-orange text-xs font-bold uppercase tracking-widest bg-meyon-orange/10 px-3 py-1 rounded-full border border-meyon-orange/20">Engineering Excellence</span>
-                <h2 class="text-2xl sm:text-3xl font-extrabold mt-3 mb-2">Designed for Maximum Personal Comfort</h2>
-                <p class="text-sm text-zinc-400">Explore the advanced physical and visual capabilities built into every MEYON Mini Turbo Fan.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Feature 1 -->
-                <div class="bg-meyon-card border border-meyon-border p-6 rounded-2xl transition-all hover:border-meyon-orange/50">
-                    <div class="w-12 h-12 rounded-xl bg-meyon-orange/10 border border-meyon-orange/20 flex items-center justify-center text-meyon-orange text-xl mb-4">
-                        <i class="fa-solid fa-gauge-high"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">5-Level Speed Control</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">Choose your preferred airflow level effortlessly with five distinct adjustable speed settings.</p>
-                </div>
-
-                <!-- Feature 2 -->
-                <div class="bg-meyon-card border border-meyon-border p-6 rounded-2xl transition-all hover:border-meyon-orange/50">
-                    <div class="w-12 h-12 rounded-xl bg-meyon-orange/10 border border-meyon-orange/20 flex items-center justify-center text-meyon-orange text-xl mb-4">
-                        <i class="fa-solid fa-display"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Digital LED Display</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">A crystal-clear digital display provides an easy-to-read interface for operational status.</p>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="bg-meyon-card border border-meyon-border p-6 rounded-2xl transition-all hover:border-meyon-orange/50">
-                    <div class="w-12 h-12 rounded-xl bg-meyon-orange/10 border border-meyon-orange/20 flex items-center justify-center text-meyon-orange text-xl mb-4">
-                        <i class="fa-solid fa-battery-three-quarters"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Battery Level Indicator</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">The integrated screen visibly indicates remaining battery percentage directly on the display.</p>
-                </div>
-
-                <!-- Feature 4 -->
-                <div class="bg-meyon-card border border-meyon-border p-6 rounded-2xl transition-all hover:border-meyon-orange/50">
-                    <div class="w-12 h-12 rounded-xl bg-meyon-orange/10 border border-meyon-orange/20 flex items-center justify-center text-meyon-orange text-xl mb-4">
-                        <i class="fa-solid fa-arrows-split-up-and-left"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Adjustable Fan Head</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">The fan head can be adjusted and folded flexibly for convenient positioning on desks or handheld use.</p>
-                </div>
-
-                <!-- Feature 5 -->
-                <div class="bg-meyon-card border border-meyon-border p-6 rounded-2xl transition-all hover:border-meyon-orange/50">
-                    <div class="w-12 h-12 rounded-xl bg-meyon-orange/10 border border-meyon-orange/20 flex items-center justify-center text-meyon-orange text-xl mb-4">
-                        <i class="fa-solid fa-hand-holding"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Portable Handheld Design</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">Compact structure with an included wrist/lanyard strap for secure carrying on the go.</p>
-                </div>
-
-                <!-- Feature 6 -->
-                <div class="bg-meyon-card border border-meyon-border p-6 rounded-2xl transition-all hover:border-meyon-orange/50">
-                    <div class="w-12 h-12 rounded-xl bg-meyon-orange/10 border border-meyon-orange/20 flex items-center justify-center text-meyon-orange text-xl mb-4">
-                        <i class="fa-solid fa-house-laptop"></i>
-                    </div>
-                    <h3 class="text-lg font-bold text-white mb-2">Compact Everyday Companion</h3>
-                    <p class="text-sm text-zinc-400 leading-relaxed">Designed for convenient personal cooling at home, work, travel, or outdoor activities.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY YOU'LL LOVE IT & SPECIFICATIONS -->
-    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            // Format Time (HH:MM:SS)
+            let hours = now.getHours();
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const ampm = hours >= 12 ? 'PM' : 'AM';
             
-            <!-- Benefits -->
-            <div class="space-y-6">
-                <div>
-                    <span class="text-meyon-orange text-xs font-bold uppercase tracking-widest bg-meyon-orange/10 px-3 py-1 rounded-full border border-meyon-orange/20">User Benefits</span>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold mt-3 mb-2">Why You'll Love It</h2>
-                    <p class="text-sm text-zinc-400">Experience superior quality tailored for your everyday lifestyle.</p>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="flex items-start gap-3 bg-meyon-card border border-meyon-border p-4 rounded-xl">
-                        <div class="w-6 h-6 rounded-full bg-meyon-orange/20 text-meyon-orange flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <i class="fa-solid fa-check text-xs"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-sm font-bold text-white">Personalized Airflow Control</h4>
-                            <p class="text-xs text-zinc-400 mt-0.5">Easily toggle between 5 distinct speeds to match your immediate cooling needs.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start gap-3 bg-meyon-card border border-meyon-border p-4 rounded-xl">
-                        <div class="w-6 h-6 rounded-full bg-meyon-orange/20 text-meyon-orange flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <i class="fa-solid fa-check text-xs"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-sm font-bold text-white">Easy to Carry & Lightweight</h4>
-                            <p class="text-xs text-zinc-400 mt-0.5">Compact body easily fits into bags, backpacks, or can be carried via the wrist strap.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start gap-3 bg-meyon-card border border-meyon-border p-4 rounded-xl">
-                        <div class="w-6 h-6 rounded-full bg-meyon-orange/20 text-meyon-orange flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <i class="fa-solid fa-check text-xs"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-sm font-bold text-white">Clear Digital Display</h4>
-                            <p class="text-xs text-zinc-400 mt-0.5">Never guess your battery status or speed setting with the integrated smart LED screen.</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-start gap-3 bg-meyon-card border border-meyon-border p-4 rounded-xl">
-                        <div class="w-6 h-6 rounded-full bg-meyon-orange/20 text-meyon-orange flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <i class="fa-solid fa-check text-xs"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-sm font-bold text-white">Stylish Modern Aesthetics</h4>
-                            <p class="text-xs text-zinc-400 mt-0.5">Clean matte black and white/silver color options designed to match your premium gear.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Specification Table Card -->
-            <div id="details" class="bg-meyon-card border border-meyon-border rounded-2xl p-6 sm:p-8 shadow-xl">
-                <div class="border-b border-meyon-border pb-4 mb-6">
-                    <h3 class="text-lg font-bold text-white">Product Specifications</h3>
-                    <p class="text-xs text-zinc-400">Official technical parameters confirmed from visual build.</p>
-                </div>
-
-                <div class="space-y-4 text-sm">
-                    <div class="flex justify-between py-2.5 border-b border-meyon-border/50">
-                        <span class="text-zinc-400 font-medium">Product Name</span>
-                        <span class="text-white font-semibold">Mini Turbo Fan</span>
-                    </div>
-                    <div class="flex justify-between py-2.5 border-b border-meyon-border/50">
-                        <span class="text-zinc-400 font-medium">Brand</span>
-                        <span class="text-white font-semibold">MEYON</span>
-                    </div>
-                    <div class="flex justify-between py-2.5 border-b border-meyon-border/50">
-                        <span class="text-zinc-400 font-medium">Speed Levels</span>
-                        <span class="text-white font-semibold">5-Level Speed Control</span>
-                    </div>
-                    <div class="flex justify-between py-2.5 border-b border-meyon-border/50">
-                        <span class="text-zinc-400 font-medium">Display Interface</span>
-                        <span class="text-white font-semibold">Digital LED Display</span>
-                    </div>
-                    <div class="flex justify-between py-2.5 border-b border-meyon-border/50">
-                        <span class="text-zinc-400 font-medium">Battery Indicator</span>
-                        <span class="text-white font-semibold">Yes, visible on display</span>
-                    </div>
-                    <div class="flex justify-between py-2.5 border-b border-meyon-border/50">
-                        <span class="text-zinc-400 font-medium">Physical Design</span>
-                        <span class="text-white font-semibold">Portable Handheld</span>
-                    </div>
-                    <div class="flex justify-between py-2.5 border-b border-meyon-border/50">
-                        <span class="text-zinc-400 font-medium">Fan Head</span>
-                        <span class="text-white font-semibold">Adjustable / Folding</span>
-                    </div>
-                    <div class="flex justify-between py-2.5 border-b border-meyon-border/50">
-                        <span class="text-zinc-400 font-medium">Available Colors</span>
-                        <span class="text-white font-semibold">Black / White-Silver</span>
-                    </div>
-                    <div class="flex justify-between py-2.5">
-                        <span class="text-zinc-400 font-medium">Special Pricing</span>
-                        <span class="text-meyon-orange font-bold">৳620 (Delivery Included)</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- OFFER SECTION -->
-    <section class="bg-gradient-to-r from-meyon-dark via-meyon-card to-meyon-dark border-y border-meyon-border py-12">
-        <div class="max-w-4xl mx-auto px-4 text-center space-y-4">
-            <span class="bg-meyon-orange text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">Limited-Time Special Offer</span>
-            <h2 class="text-2xl sm:text-4xl font-extrabold text-white">Get Your MEYON Mini Turbo Fan Today</h2>
-            <div class="flex items-center justify-center gap-4 py-2">
-                <span class="text-3xl sm:text-4xl font-extrabold text-meyon-orange">৳620</span>
-                <span class="text-xl text-zinc-500 line-through">৳700</span>
-            </div>
-            <p class="text-sm text-zinc-400 max-w-lg mx-auto">Take advantage of our special promotional pricing. Delivery is completely included nationwide across Bangladesh with no hidden charges.</p>
-            <div class="pt-2">
-                <a href="#order-section" class="inline-flex items-center gap-2 bg-meyon-orange hover:bg-meyon-orangeHover text-white font-bold py-3.5 px-8 rounded-xl transition-all shadow-lg shadow-meyon-orange/20">
-                    <span>Claim Offer Now</span>
-                    <i class="fa-solid fa-arrow-down text-xs"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- DELIVERY INFORMATION SECTION -->
-    <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-meyon-card border border-meyon-border rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-            <div class="space-y-2 text-center md:text-left">
-                <div class="inline-flex items-center gap-2 text-meyon-orange text-xs font-bold uppercase tracking-wider">
-                    <i class="fa-solid fa-truck"></i> Nationwide Coverage
-                </div>
-                <h3 class="text-xl font-bold text-white">Fast & Reliable Delivery in Bangladesh</h3>
-                <p class="text-sm text-zinc-400 max-w-xl">Delivery is available nationwide in Bangladesh. The displayed special offer price of ৳620 includes delivery. No additional delivery fees will be added.</p>
-            </div>
-            <div class="flex-shrink-0">
-                <a href="#order-section" class="bg-meyon-dark border border-meyon-border hover:border-meyon-orange text-white font-semibold px-6 py-3 rounded-xl transition-all inline-flex items-center gap-2 text-sm">
-                    <span>Place Your Order</span>
-                    <i class="fa-solid fa-chevron-right text-xs text-meyon-orange"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ORDER SECTION & FORM -->
-    <section id="order-section" class="py-16 bg-meyon-dark border-t border-meyon-border">
-        <div class="max-w-3xl mx-auto px-4 sm:px-6">
+            hours = hours % 12;
+            hours = hours ? hours.toString().padStart(2, '0') : '12'; // the hour '0' should be '12'
             
-            <div class="text-center mb-10">
-                <span class="text-meyon-orange text-xs font-bold uppercase tracking-widest bg-meyon-orange/10 px-3 py-1 rounded-full border border-meyon-orange/20">Secure Checkout</span>
-                <h2 class="text-2xl sm:text-3xl font-extrabold mt-3 mb-2">Complete Your Order</h2>
-                <p class="text-sm text-zinc-400">Fill in your delivery details below. Payment is processed securely via Rocket.</p>
-            </div>
+            const timeString = `${hours}:${minutes}:${seconds} ${ampm}`;
+            document.getElementById('clock').textContent = timeString;
 
-            <!-- Order Form Card -->
-            <div class="bg-meyon-card border border-meyon-border rounded-2xl p-6 sm:p-8 shadow-2xl">
-                <form id="checkout-form" onsubmit="handleOrderSubmission(event)" class="space-y-6" novalidate>
-                    
-                    <!-- Selected Summary Box -->
-                    <div class="bg-meyon-dark border border-meyon-border p-4 rounded-xl flex items-center justify-between text-sm">
-                        <div>
-                            <p class="font-bold text-white" id="summary-product-title">Mini Turbo Fan</p>
+            // Format Date (Day, Month Date Year)
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = now.toLocaleDateString(undefined, options);
+            document.getElementById('date').textContent = dateString;
+        }
+
+        // Update clock every second
+        setInterval(updateClock, 1000);
+        updateClock(); // Initial call to avoid 1-second delay
+    </script>
+
+</body>
+</html>
+ Turbo Fan</p>
                             <p class="text-xs text-zinc-400 mt-0.5">Color: <span id="summary-color" class="text-white font-semibold">Black</span> | Qty: <span id="summary-qty" class="text-white font-semibold">1</span></p>
                         </div>
                         <div class="text-right">
