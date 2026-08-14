@@ -1,135 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="MEYON Mini Turbo Fan — compact portable cooling with 5 speed levels and digital LED display.">
-<meta property="og:title" content="MEYON Mini Turbo Fan">
-<meta property="og:description" content="Powerful cooling. Compact freedom.">
-<title>MEYON | Mini Turbo Fan</title>
-<style>
-:root{--orange:#ff5a16;--black:#111;--muted:#666;--line:#e8e8e8;--soft:#f7f7f7}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--black);background:#fff;line-height:1.55}
-a{text-decoration:none;color:inherit}.topbar{background:#151515;color:#fff;text-align:center;padding:10px 16px;font-size:13px;font-weight:700}
-header{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;position:sticky;top:0;background:#fff;z-index:20}
-.brand-logo{height:42px;width:auto;max-width:180px;object-fit:contain}
-.container{max-width:1120px;margin:auto;padding:0 20px}
-.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:55px;padding:48px 0 70px}
-.gallery{position:sticky;top:105px;align-self:start}.main-img{background:#fafafa;border:1px solid var(--line);border-radius:24px;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;overflow:hidden}.main-img img{width:100%;height:100%;object-fit:contain}
-.thumbs{display:flex;gap:10px;margin-top:12px;overflow:auto}.thumb{min-width:74px;height:74px;border:2px solid var(--line);border-radius:12px;background:#fff;overflow:hidden;cursor:pointer}.thumb.active{border-color:var(--orange)}.thumb img{width:100%;height:100%;object-fit:contain}
-.badge{display:inline-block;background:#fff1eb;color:var(--orange);font-weight:800;padding:7px 12px;border-radius:999px;font-size:12px;margin-bottom:14px}.eyebrow{color:var(--muted);font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:800}
-h1{font-size:46px;line-height:1.08;margin:7px 0 14px;letter-spacing:-1.5px}h2{font-size:30px;line-height:1.15;margin:0 0 18px}h3{margin:0 0 7px}
-.desc{color:var(--muted);font-size:17px}.price{display:flex;align-items:center;gap:12px;margin:25px 0}.old{text-decoration:line-through;color:#888;font-size:22px}.new{font-size:38px;font-weight:900}.included{font-size:13px;color:#23835f;font-weight:800}
-.option-title{font-weight:800;margin:18px 0 9px}.colors{display:flex;gap:10px}.color{padding:11px 17px;border:1.5px solid #ddd;border-radius:999px;background:#fff;cursor:pointer;font-weight:700}.color.selected{border-color:var(--orange);box-shadow:0 0 0 2px #ffe0d2}.dot{display:inline-block;width:15px;height:15px;border-radius:50%;vertical-align:-2px;margin-right:7px;border:1px solid #bbb}.black{background:#111}.white{background:#fff}
-.qty{display:flex;align-items:center;justify-content:space-between;border:1px solid var(--line);border-radius:14px;padding:8px 12px;margin:10px 0 15px}.qty button{border:0;background:#f3f3f3;width:44px;height:44px;border-radius:10px;font-size:25px;cursor:pointer}.qty strong{font-size:20px}
-.total{display:flex;justify-content:space-between;font-weight:800;margin:12px 2px}.btn{width:100%;border:0;border-radius:14px;padding:16px;font-size:17px;font-weight:900;cursor:pointer;margin:7px 0;transition:.2s}.btn:hover{transform:translateY(-1px)}.primary{background:var(--orange);color:#fff}.dark{background:#171717;color:#fff}.whatsapp{background:#fff;color:#16865b;border:1px solid #b9e5d0}
-.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:15px}.trust div{background:var(--soft);padding:12px;border-radius:12px;text-align:center;font-size:12px;font-weight:800}
-.section{padding:70px 0;border-top:1px solid var(--line)}.center{text-align:center}.muted{color:var(--muted)}.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}.card{border:1px solid var(--line);border-radius:18px;padding:24px;background:#fff}.icon{font-size:27px;margin-bottom:10px}
-.specs{max-width:760px;margin:25px auto 0;border:1px solid var(--line);border-radius:18px;overflow:hidden}.row{display:flex;justify-content:space-between;padding:15px 18px;border-bottom:1px solid var(--line)}.row:last-child{border:0}.row span:first-child{font-weight:800}
-.offer{background:#171717;color:#fff;border-radius:24px;padding:40px;text-align:center}.offer .new{color:#fff}.offer p{color:#ccc}
-form{max-width:760px;margin:25px auto 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{margin-bottom:14px}.field label{display:block;font-weight:800;font-size:13px;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;padding:14px;border:1px solid #ddd;border-radius:12px;font:inherit;outline:none}.field textarea{min-height:100px;resize:vertical}.full{grid-column:1/-1}.payment{background:#fff8f3;border:1px solid #ffd8c5;padding:15px;border-radius:14px;margin:10px 0 18px}.status{padding:14px;border-radius:12px;background:#eef8f3;color:#227654;font-weight:800;display:none}
-.faq{max-width:760px;margin:auto}.faq details{border-bottom:1px solid var(--line);padding:16px 0}.faq summary{font-weight:800;cursor:pointer}
-footer{background:#171717;color:#ddd;padding:50px 0 25px}.footergrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:35px}.footer-brand-logo{height:48px;width:auto;max-width:190px;object-fit:contain;filter:brightness(0) invert(1)}footer h4{color:#fff;margin:0 0 12px}footer p,footer a{color:#aaa}.copy{border-top:1px solid #333;margin-top:35px;padding-top:18px;color:#888;font-size:13px}
-.sticky{display:none}
-@media(max-width:800px){.hero{grid-template-columns:1fr;gap:25px;padding-top:25px}.gallery{position:static}h1{font-size:37px}.features{grid-template-columns:1fr}.footergrid{grid-template-columns:1fr 1fr}.trust{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.full{grid-column:auto}.sticky{display:flex;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #ddd;padding:8px;z-index:30;gap:7px}.sticky .btn{margin:0;padding:13px}.sticky .whatsapp{flex:1}.sticky .primary{flex:1.2}.container{padding:0 15px}.section{padding:50px 0}}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEYON Mini Turbo Fan - Premium Gadget</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .brand-orange { background-color: #ff6600; }
+        .brand-orange-text { color: #ff6600; }
+        .brand-orange-border { border-color: #ff6600; }
+    </style>
 </head>
-<body>
-<div class="topbar">SPECIAL OFFER • ৳620 INCLUDING DELIVERY • LIMITED-TIME OFFER</div>
-<header><img class="brand-logo" src="assets/meyon-logo.png" alt="MEYON"></header>
+<body class="bg-gray-50 text-gray-800 pb-24">
 
-<main>
-<div class="container hero">
-<section class="gallery">
-<div class="main-img"><img id="mainImage" src="assets/product-black.jpg" alt="MEYON Mini Turbo Fan"></div>
-<div class="thumbs">
-<button class="thumb active" data-img="assets/product-black.jpg"><img src="assets/product-black.jpg" alt="Black Mini Turbo Fan"></button>
-<button class="thumb" data-img="assets/product-white.jpg"><img src="assets/product-white.jpg" alt="White Mini Turbo Fan"></button>
-<button class="thumb" data-img="assets/product-colors.jpg"><img src="assets/product-colors.jpg" alt="Available colors"></button>
-</div>
-</section>
+    <!-- Header / Brand -->
+    <header class="bg-white shadow-sm py-4 text-center sticky top-0 z-50">
+        <h1 class="text-2xl font-black tracking-wider text-black">MEYON</h1>
+    </header>
 
-<section>
-<span class="badge">SPECIAL OFFER</span>
-<div class="eyebrow">MEYON Portable Collection</div>
-<h1>Mini Turbo Fan</h1>
-<p class="desc">Powerful cooling. Compact freedom. Enjoy personalized airflow with 5 speed levels, a digital LED display and an adjustable handheld design made for everyday use.</p>
-<div class="price"><span class="old">৳700</span><span class="new">৳620</span></div>
-<div class="included">✓ Delivery included</div>
+    <!-- Main Container -->
+    <main class="max-w-md mx-auto p-4 space-y-6">
 
-<div class="option-title">Color</div>
-<div class="colors">
-<button class="color selected" data-color="Black"><span class="dot black"></span>Black</button>
-<button class="color" data-color="White/Silver"><span class="dot white"></span>White/Silver</button>
-</div>
+        <!-- Product Image Section -->
+        <div class="bg-white rounded-2xl shadow-md overflow-hidden p-4 text-center">
+            <img src="https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?auto=format&fit=crop&w=600&q=80" alt="MEYON Mini Turbo Fan" class="w-full h-64 object-cover rounded-xl mb-4">
+            <h2 class="text-xl font-bold text-gray-900">MEYON Mini Turbo Fan</h2>
+            <p class="text-gray-500 text-sm mt-1">High-speed portable cooling with digital LED display</p>
+            <div class="mt-3 flex items-center justify-center space-x-3">
+                <span class="text-gray-400 line-through text-lg">৳700</span>
+                <span class="text-2xl font-black brand-orange-text">৳620</span>
+                <span class="bg-orange-100 text-orange-700 text-xs font-bold px-2.5 py-1 rounded-full">Free Delivery</span>
+            </div>
+        </div>
 
-<div class="option-title">Quantity</div>
-<div class="qty"><button id="minus">−</button><strong id="qty">1</strong><button id="plus">+</button></div>
-<div class="total"><span>Total</span><span id="total">৳620</span></div>
+        <!-- Features Grid -->
+        <div class="grid grid-cols-3 gap-2 text-center">
+            <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100">
+                <i class="fa-solid fa-wind brand-orange-text text-lg mb-1"></i>
+                <p class="text-xs font-semibold">5 Speed Levels</p>
+            </div>
+            <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100">
+                <i class="fa-solid fa-display brand-orange-text text-lg mb-1"></i>
+                <p class="text-xs font-semibold">Digital Display</p>
+            </div>
+            <div class="bg-white p-3 rounded-xl shadow-sm border border-gray-100">
+                <i class="fa-solid fa-bolt brand-orange-text text-lg mb-1"></i>
+                <p class="text-xs font-semibold">Portable Design</p>
+            </div>
+        </div>
 
-<button class="btn primary" id="orderBtn">ORDER NOW</button>
-<a class="btn whatsapp" id="waBtn" href="#" target="_blank">◯ Order on WhatsApp</a>
-<a class="btn dark" href="tel:01336486494">☎ Call to Order</a>
+        <!-- Order Form Section -->
+        <div class="bg-white rounded-2xl shadow-md p-5 space-y-4">
+            <h3 class="text-lg font-bold border-b pb-2">Place Your Order</h3>
+            
+            <form id="orderForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Select Color</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="border rounded-xl p-3 flex items-center space-x-2 cursor-pointer hover:border-orange-500">
+                            <input type="radio" name="color" value="Black" checked class="accent-orange-500">
+                            <span class="font-medium text-sm">Black</span>
+                        </label>
+                        <label class="border rounded-xl p-3 flex items-center space-x-2 cursor-pointer hover:border-orange-500">
+                            <input type="radio" name="color" value="White/Silver" class="accent-orange-500">
+                            <span class="font-medium text-sm">White/Silver</span>
+                        </label>
+                    </div>
+                </div>
 
-<div class="trust"><div>5 Speed Levels</div><div>Digital Display</div><div>Portable Design</div></div>
-</section>
-</div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Full Name *</label>
+                    <input type="text" required placeholder="Enter your full name" class="w-full border rounded-xl p-3 text-sm focus:outline-none focus:border-orange-500">
+                </div>
 
-<section class="section"><div class="container">
-<div class="center"><div class="eyebrow">Designed for everyday use</div><h2>Why You'll Love It</h2><p class="muted">A compact cooling companion with simple controls and a modern design.</p></div>
-<div class="features">
-<div class="card"><div class="icon">⚡</div><h3>5-Level Speed Control</h3><p class="muted">Choose your preferred airflow level with five adjustable speed settings.</p></div>
-<div class="card"><div class="icon">▣</div><h3>Digital LED Display</h3><p class="muted">A clear digital display provides an easy-to-read interface.</p></div>
-<div class="card"><div class="icon">🔋</div><h3>Battery Indicator</h3><p class="muted">The display visibly indicates battery level.</p></div>
-<div class="card"><div class="icon">↕</div><h3>Adjustable Fan Head</h3><p class="muted">Adjust the fan head for convenient positioning.</p></div>
-<div class="card"><div class="icon">✦</div><h3>Portable Handheld Design</h3><p class="muted">Compact and easy to carry for everyday use.</p></div>
-<div class="card"><div class="icon">◉</div><h3>Compact Everyday Companion</h3><p class="muted">A practical choice for home, work, travel and outdoor use.</p></div>
-</div>
-</div></section>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Phone Number *</label>
+                    <input type="tel" required placeholder="01XXXXXXXXX" class="w-full border rounded-xl p-3 text-sm focus:outline-none focus:border-orange-500">
+                </div>
 
-<section class="section"><div class="container">
-<div class="center"><h2>Product Details</h2></div>
-<div class="specs">
-<div class="row"><span>Product</span><span>Mini Turbo Fan</span></div>
-<div class="row"><span>Speed Levels</span><span>5</span></div>
-<div class="row"><span>Display</span><span>Digital LED</span></div>
-<div class="row"><span>Battery Indicator</span><span>Yes</span></div>
-<div class="row"><span>Fan Head</span><span>Adjustable/Folding</span></div>
-<div class="row"><span>Colors</span><span>Black / White-Silver</span></div>
-<div class="row"><span>Offer Price</span><span>৳620 including delivery</span></div>
-</div>
-</div></section>
+                <div>
+                    <label class="block text-sm font-semibold mb-1">Delivery Address *</label>
+                    <textarea required rows="2" placeholder="House/Road, Area, City" class="w-full border rounded-xl p-3 text-sm focus:outline-none focus:border-orange-500"></textarea>
+                </div>
 
-<section class="section"><div class="container"><div class="offer">
-<div class="eyebrow">MEYON SPECIAL OFFER</div><h2>Powerful Cooling. Compact Freedom.</h2><p>Get the Mini Turbo Fan at a special offer price with delivery included.</p><div><span class="old">৳700</span> <span class="new">৳620</span></div><button class="btn primary" onclick="document.getElementById('order').scrollIntoView()">ORDER NOW</button></div></div></section>
+                <div class="bg-orange-50 p-3 rounded-xl flex justify-between items-center">
+                    <span class="font-semibold text-sm">Total Payable:</span>
+                    <span class="text-xl font-black brand-orange-text">৳620</span>
+                </div>
 
-<section class="section" id="order"><div class="container">
-<div class="center"><div class="eyebrow">Fast & simple checkout</div><h2>Place Your Order</h2><p class="muted">Enter your details and submit your order for verification.</p></div>
-<form id="orderForm">
-<div class="grid">
-<div class="field"><label>Full Name *</label><input id="name" required placeholder="Your full name"></div>
-<div class="field"><label>Mobile Number *</label><input id="phone" required inputmode="tel" placeholder="01XXXXXXXXX"></div>
-<div class="field full"><label>Full Delivery Address *</label><textarea id="address" required placeholder="House, road, area, district"></textarea></div>
-<div class="field"><label>Color *</label><select id="formColor"><option>Black</option><option>White/Silver</option></select></div>
-<div class="field"><label>Quantity *</label><input id="formQty" type="number" min="1" value="1" required></div>
-</div>
-<div class="payment"><strong>Payment Method: Rocket</strong><br><span class="muted">Enter your Rocket transaction ID (TRX ID) for manual payment verification.</span></div>
-<div class="field"><label>Rocket TRX ID *</label><input id="trx" required placeholder="Enter transaction ID"></div>
-<button class="btn primary" type="submit">SUBMIT ORDER</button>
-<div class="status" id="status">Order submitted. Payment verification is pending.</div>
-</form>
-</div></section>
+                <button type="submit" class="w-full brand-orange text-white font-bold py-3.5 rounded-xl shadow-lg hover:opacity-90 transition">
+                    SUBMIT ORDER
+                </button>
+            </form>
+        </div>
 
-<section class="section"><div class="container"><div class="faq"><div class="center"><h2>Frequently Asked Questions</h2></div>
-<details><summary>What is the price?</summary><p class="muted">The special offer price is ৳620, including delivery.</p></details>
-<details><summary>What colors are available?</summary><p class="muted">Black and White/Silver.</p></details>
-<details><summary>How many speed levels does it have?</summary><p class="muted">It has 5 speed levels.</p></details>
-<details><summary>How do I place an order?</summary><p class="muted">Select your color and quantity, enter your details and Rocket TRX ID, then submit the order.</p></details>
-<details><summary>Can I order through WhatsApp?</summary><p class="muted">Yes. Use the WhatsApp button to contact MEYON.</p></details>
-</div></div></section>
-</main>
+    </main>
 
-<footer><div class="container">
+    <!-- Fixed Bottom Action Bar -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg p-3 flex justify-around items-center z-50">
+        <a href="#orderForm" class="flex-1 bg-black text-white text-center py-3 rounded-xl font-bold text-sm mx-1 shadow">
+            <i class="fa-solid fa-bag-shopping mr-1"></i> ORDER NOW
+        </a>
+        <a href="https://wa.me/8801700000000" target="_blank" class="flex-1 bg-green-600 text-white text-center py-3 rounded-xl font-bold text-sm mx-1 shadow">
+            <i class="fa-brands fa-whatsapp mr-1"></i> WhatsApp
+        </a>
+    </div>
+
+</body>
+</html>
+">
 <div class="footergrid">
 <div><img class="footer-brand-logo" src="assets/meyon-logo.png" alt="MEYON"><p>Smart products. Better everyday living.</p><p>☎ <a href="tel:01336486494">01336486494</a><br>◯ WhatsApp <a href="https://wa.me/8801336486494" target="_blank">01336486494</a></p></div>
 <div><h4>SUPPORT</h4><p>Contact Us</p><p>Delivery Information</p><p>Payment Verification</p><p>FAQ</p></div>
