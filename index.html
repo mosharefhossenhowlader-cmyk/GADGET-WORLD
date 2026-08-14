@@ -1,197 +1,885 @@
-<!DOCTYPE html>
-<html lang="bn">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARIXO Cardholder Wallet Vault</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.6;
-        }
-        header {
-            background: #fff;
-            padding: 15px 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #d35400;
-            letter-spacing: 1px;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        .product-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        @media (max-width: 768px) {
-            .product-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-        .product-image img {
-            width: 100%;
-            border-radius: 8px;
-            border: 1px solid #eee;
-        }
-        .badge {
-            background: #e74c3c;
-            color: white;
-            padding: 5px 10px;
-            font-size: 12px;
-            border-radius: 4px;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-        .product-title {
-            font-size: 26px;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        .rating {
-            color: #f39c12;
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-        .price-box {
-            margin-bottom: 20px;
-        }
-        .current-price {
-            font-size: 28px;
-            color: #d35400;
-            font-weight: bold;
-        }
-        .old-price {
-            font-size: 18px;
-            color: #999;
-            text-decoration: line-through;
-            margin-left: 10px;
-        }
-        .description {
-            margin-bottom: 20px;
-            color: #666;
-        }
-        .colors {
-            margin-bottom: 20px;
-        }
-        .color-options {
-            display: flex;
-            gap: 10px;
-            margin-top: 5px;
-        }
-        .color-btn {
-            padding: 8px 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background: #fff;
-            cursor: pointer;
-        }
-        .color-btn.active {
-            border-color: #d35400;
-            background: #fdf5f2;
-            color: #d35400;
-            font-weight: bold;
-        }
-        .cta-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        .btn {
-            padding: 15px;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            display: block;
-        }
-        .btn-cart {
-            background: #f39c12;
-            color: white;
-        }
-        .btn-buy {
-            background: #111;
-            color: white;
-        }
-        .btn-whatsapp {
-            background: #25d366;
-            color: white;
-        }
-        .btn:hover {
-            opacity: 0.9;
-        }
-    </style>
-</head>
-<body>
+import 'dart:async';
+import 'dart:math';
+import 'package:flutter/material.dart';
 
-    <header>
-        <div class="logo">ARIXO</div>
-        <div>🛒 কার্ট (১)</div>
-    </header>
+void main() {
+  runApp(const BinaryApp());
+}
 
-    <div class="container">
-        <div class="product-grid">
-            <!-- প্রোডাক্ট ইমেজ -->
-            <div class="product-image">
-                <span class="badge">🔥 Limited-Time Offer</span>
-                <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=600&q=80" alt="ARIXO Cardholder Wallet">
-            </div>
+// ============================================================
+// APP
+// ============================================================
 
-            <!-- প্রোডাক্ট ডিটেইলস -->
-            <div class="product-details">
-                <h1 class="product-title">Wallet Vault – Compact, Premium & Built to Last</h1>
-                <div class="rating">★★★★★ <strong>5.0</strong> (7 Reviews)</div>
-                
-                <div class="price-box">
-                    <span class="current-price">Tk 999</span>
-                    <span class="old-price">Tk 1,890</span>
-                </div>
+class BinaryApp extends StatelessWidget {
+  const BinaryApp({super.key});
 
-                <p class="description">
-                    Crafted from 100% genuine leather, the Cardholder Wallet Vault is designed for modern everyday carry. It securely holds up to 12 cards while offering dedicated space for cash, coins, keys, and your ID — all in a compact, premium design.
-                </p>
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'BinaryX Demo',
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: const Color(0xff0b0f16),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xff00a8ff),
+          brightness: Brightness.dark,
+        ),
+        useMaterial3: true,
+      ),
+      home: const LoginPage(),
+    );
+  }
+}
 
-                <div class="colors">
-                    <label><strong>Color: Black</strong></label>
-                    <div class="color-options">
-                        <button class="color-btn active">Black</button>
-                        <button class="color-btn">Chocolate</button>
-                    </div>
-                </div>
+// ============================================================
+// LOGIN
+// ============================================================
 
-                <div class="cta-buttons">
-                    <button class="btn btn-cart">Add to Cart</button>
-                    <button class="btn btn-buy">Buy Now</button>
-                    <a href="https://whatsapp.com" target="_blank" class="btn btn-whatsapp">Order on WhatsApp</a>
-                </div>
-            </div>
-        </div>
-    </div>
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
-</body>
-</html>
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final email = TextEditingController();
+  final password = TextEditingController();
+
+  void login() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (_) => const MainPage(),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(25),
+          child: Column(
+            children: [
+              const Icon(
+                Icons.candlestick_chart,
+                size: 80,
+                color: Color(0xff00a8ff),
+              ),
+
+              const SizedBox(height: 15),
+
+              const Text(
+                'BinaryX',
+                style: TextStyle(
+                  fontSize: 38,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              const Text(
+                'DEMO TRADING PLATFORM',
+                style: TextStyle(
+                  color: Colors.grey,
+                  letterSpacing: 2,
+                ),
+              ),
+
+              const SizedBox(height: 40),
+
+              TextField(
+                controller: email,
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  labelText: 'Email',
+                  prefixIcon: const Icon(Icons.email),
+                  filled: true,
+                  fillColor: const Color(0xff151b25),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 15),
+
+              TextField(
+                controller: password,
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                  prefixIcon: const Icon(Icons.lock),
+                  filled: true,
+                  fillColor: const Color(0xff151b25),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 25),
+
+              SizedBox(
+                width: double.infinity,
+                height: 55,
+                child: ElevatedButton(
+                  onPressed: login,
+                  child: const Text(
+                    'LOGIN',
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 15),
+
+              TextButton(
+                onPressed: () {},
+                child: const Text('Create new account'),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// ============================================================
+// MAIN PAGE
+// ============================================================
+
+class MainPage extends StatefulWidget {
+  const MainPage({super.key});
+
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  int selectedPage = 0;
+
+  final pages = const [
+    TradingPage(),
+    HistoryPage(),
+    ProfilePage(),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: pages[selectedPage],
+      bottomNavigationBar: NavigationBar(
+        selectedIndex: selectedPage,
+        onDestinationSelected: (index) {
+          setState(() {
+            selectedPage = index;
+          });
+        },
+        destinations: const [
+          NavigationDestination(
+            icon: Icon(Icons.show_chart),
+            label: 'Trade',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.history),
+            label: 'History',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// ============================================================
+// TRADE MODEL
+// ============================================================
+
+class Trade {
+  final String direction;
+  final double amount;
+  final double entry;
+  final double exit;
+  final bool win;
+  final DateTime time;
+
+  Trade({
+    required this.direction,
+    required this.amount,
+    required this.entry,
+    required this.exit,
+    required this.win,
+    required this.time,
+  });
+}
+
+// ============================================================
+// GLOBAL TRADE DATA
+// ============================================================
+
+double globalBalance = 10000;
+
+final List<Trade> globalHistory = [];
+
+// ============================================================
+// TRADING PAGE
+// ============================================================
+
+class TradingPage extends StatefulWidget {
+  const TradingPage({super.key});
+
+  @override
+  State<TradingPage> createState() => _TradingPageState();
+}
+
+class _TradingPageState extends State<TradingPage> {
+  final Random random = Random();
+
+  double price = 100;
+
+  final List<double> prices = [];
+
+  int expiry = 30;
+
+  double amount = 100;
+
+  Timer? marketTimer;
+
+  @override
+  void initState() {
+    super.initState();
+
+    for (int i = 0; i < 45; i++) {
+      price += (random.nextDouble() - .5) * 2;
+      prices.add(price);
+    }
+
+    marketTimer = Timer.periodic(
+      const Duration(seconds: 1),
+      (_) {
+        setState(() {
+          price += (random.nextDouble() - .5) * 1.4;
+
+          if (price < 1) {
+            price = 1;
+          }
+
+          prices.add(price);
+
+          if (prices.length > 45) {
+            prices.removeAt(0);
+          }
+        });
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    marketTimer?.cancel();
+    super.dispose();
+  }
+
+  void trade(String direction) {
+    if (amount <= 0) {
+      message('Enter a valid amount');
+      return;
+    }
+
+    if (amount > globalBalance) {
+      message('Insufficient demo balance');
+      return;
+    }
+
+    final entry = price;
+
+    setState(() {
+      globalBalance -= amount;
+    });
+
+    int remaining = expiry;
+
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) {
+        return StatefulBuilder(
+          builder: (context, dialogSetState) {
+            Timer.periodic(
+              const Duration(seconds: 1),
+              (timer) {
+                if (!context.mounted) {
+                  timer.cancel();
+                  return;
+                }
+
+                if (remaining <= 0) {
+                  timer.cancel();
+                  Navigator.pop(context);
+
+                  final exit = price;
+
+                  bool win;
+
+                  if (direction == 'UP') {
+                    win = exit > entry;
+                  } else {
+                    win = exit < entry;
+                  }
+
+                  final payout = amount * .80;
+
+                  if (win) {
+                    globalBalance += amount + payout;
+                  }
+
+                  globalHistory.insert(
+                    0,
+                    Trade(
+                      direction: direction,
+                      amount: amount,
+                      entry: entry,
+                      exit: exit,
+                      win: win,
+                      time: DateTime.now(),
+                    ),
+                  );
+
+                  setState(() {});
+
+                  Future.delayed(
+                    const Duration(milliseconds: 300),
+                    () {
+                      if (mounted) {
+                        resultDialog(win, payout);
+                      }
+                    },
+                  );
+                } else {
+                  remaining--;
+                  dialogSetState(() {});
+                }
+              },
+            );
+
+            return AlertDialog(
+              title: const Text('Trade Running'),
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    direction == 'UP'
+                        ? Icons.arrow_upward
+                        : Icons.arrow_downward,
+                    size: 60,
+                    color: direction == 'UP'
+                        ? Colors.green
+                        : Colors.red,
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    direction,
+                    style: const TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    '${remaining}s',
+                    style: const TextStyle(
+                      fontSize: 35,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+
+  void resultDialog(bool win, double payout) {
+    showDialog(
+      context: context,
+      builder: (_) {
+        return AlertDialog(
+          title: Text(
+            win ? 'TRADE WON 🎉' : 'TRADE LOST',
+          ),
+          content: Text(
+            win
+                ? 'Profit: \$${payout.toStringAsFixed(2)}'
+                : 'Your trade was unsuccessful.',
+          ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  void message(String text) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(text)),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'BinaryX',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 15),
+            child: Center(
+              child: Text(
+                '\$${globalBalance.toStringAsFixed(2)}',
+                style: const TextStyle(
+                  color: Colors.greenAccent,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(15),
+        child: Column(
+          children: [
+            // MARKET
+            Container(
+              padding: const EdgeInsets.all(18),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: const Color(0xff151b25),
+                borderRadius: BorderRadius.circular(18),
+              ),
+              child: Column(
+                children: [
+                  const Text(
+                    'EUR/USD DEMO',
+                    style: TextStyle(color: Colors.grey),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    price.toStringAsFixed(5),
+                    style: const TextStyle(
+                      fontSize: 34,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  const Text(
+                    'LIVE DEMO PRICE',
+                    style: TextStyle(
+                      color: Colors.greenAccent,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 15),
+
+            // CHART
+            Container(
+              height: 280,
+              width: double.infinity,
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: const Color(0xff151b25),
+                borderRadius: BorderRadius.circular(18),
+              ),
+              child: CustomPaint(
+                painter: ChartPainter(prices),
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            // EXPIRY
+            Row(
+              mainAxisAlignment:
+                  MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Expiry',
+                  style: TextStyle(fontSize: 17),
+                ),
+                Text(
+                  '$expiry seconds',
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+
+            Slider(
+              min: 10,
+              max: 120,
+              divisions: 11,
+              value: expiry.toDouble(),
+              onChanged: (value) {
+                setState(() {
+                  expiry = value.toInt();
+                });
+              },
+            ),
+
+            const SizedBox(height: 10),
+
+            // AMOUNT
+            TextField(
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                labelText: 'Trade Amount',
+                prefixText: '\$ ',
+                filled: true,
+                fillColor: const Color(0xff151b25),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+              ),
+              onChanged: (value) {
+                amount =
+                    double.tryParse(value) ?? 0;
+              },
+            ),
+
+            const SizedBox(height: 18),
+
+            // UP DOWN
+            Row(
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    height: 65,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(15),
+                        ),
+                      ),
+                      onPressed: () => trade('UP'),
+                      child: const Text(
+                        'UP ↑',
+                        style: TextStyle(
+                          fontSize: 21,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: SizedBox(
+                    height: 65,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.red,
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(15),
+                        ),
+                      ),
+                      onPressed: () => trade('DOWN'),
+                      child: const Text(
+                        'DOWN ↓',
+                        style: TextStyle(
+                          fontSize: 21,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 20),
+
+            // PAYOUT
+            Container(
+              padding: const EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                color: const Color(0xff151b25),
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: const Row(
+                mainAxisAlignment:
+                    MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Payout'),
+                  Text(
+                    '80%',
+                    style: TextStyle(
+                      color: Colors.greenAccent,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+// ============================================================
+// CHART PAINTER
+// ============================================================
+
+class ChartPainter extends CustomPainter {
+  final List<double> values;
+
+  ChartPainter(this.values);
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    if (values.length < 2) return;
+
+    final linePaint = Paint()
+      ..color = Colors.blueAccent
+      ..strokeWidth = 2.5
+      ..style = PaintingStyle.stroke;
+
+    final gridPaint = Paint()
+      ..color = Colors.white10
+      ..strokeWidth = 1;
+
+    for (int i = 1; i < 5; i++) {
+      final y = size.height * i / 5;
+      canvas.drawLine(
+        Offset(0, y),
+        Offset(size.width, y),
+        gridPaint,
+      );
+    }
+
+    final minValue = values.reduce(min);
+    final maxValue = values.reduce(max);
+
+    final range =
+        maxValue - minValue == 0
+            ? 1
+            : maxValue - minValue;
+
+    final path = Path();
+
+    for (int i = 0; i < values.length; i++) {
+      final x =
+          i * size.width / (values.length - 1);
+
+      final normalized =
+          (values[i] - minValue) / range;
+
+      final y =
+          size.height -
+          normalized * size.height;
+
+      if (i == 0) {
+        path.moveTo(x, y);
+      } else {
+        path.lineTo(x, y);
+      }
+    }
+
+    canvas.drawPath(path, linePaint);
+  }
+
+  @override
+  bool shouldRepaint(
+    covariant ChartPainter oldDelegate,
+  ) {
+    return true;
+  }
+}
+
+// ============================================================
+// HISTORY PAGE
+// ============================================================
+
+class HistoryPage extends StatefulWidget {
+  const HistoryPage({super.key});
+
+  @override
+  State<HistoryPage> createState() =>
+      _HistoryPageState();
+}
+
+class _HistoryPageState extends State<HistoryPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Trade History'),
+      ),
+      body: globalHistory.isEmpty
+          ? const Center(
+              child: Text(
+                'No trades yet',
+                style: TextStyle(color: Colors.grey),
+              ),
+            )
+          : ListView.builder(
+              padding: const EdgeInsets.all(15),
+              itemCount: globalHistory.length,
+              itemBuilder: (context, index) {
+                final trade = globalHistory[index];
+
+                return Card(
+                  color: const Color(0xff151b25),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor:
+                          trade.win
+                              ? Colors.green
+                              : Colors.red,
+                      child: Icon(
+                        trade.direction == 'UP'
+                            ? Icons.arrow_upward
+                            : Icons.arrow_downward,
+                      ),
+                    ),
+                    title: Text(
+                      '${trade.direction}  \$${trade.amount.toStringAsFixed(2)}',
+                    ),
+                    subtitle: Text(
+                      '${trade.entry.toStringAsFixed(4)} → '
+                      '${trade.exit.toStringAsFixed(4)}',
+                    ),
+                    trailing: Text(
+                      trade.win ? 'WIN' : 'LOSS',
+                      style: TextStyle(
+                        color: trade.win
+                            ? Colors.green
+                            : Colors.red,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+    );
+  }
+}
+
+// ============================================================
+// PROFILE
+// ============================================================
+
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Profile'),
+      ),
+      body: ListView(
+        padding: const EdgeInsets.all(20),
+        children: [
+          const CircleAvatar(
+            radius: 45,
+            child: Icon(
+              Icons.person,
+              size: 50,
+            ),
+          ),
+
+          const SizedBox(height: 15),
+
+          const Center(
+            child: Text(
+              'Demo Trader',
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 25),
+
+          Card(
+            color: const Color(0xff151b25),
+            child: ListTile(
+              leading: const Icon(Icons.account_balance_wallet),
+              title: const Text('Demo Balance'),
+              trailing: Text(
+                '\$${globalBalance.toStringAsFixed(2)}',
+              ),
+            ),
+          ),
+
+          Card(
+            color: const Color(0xff151b25),
+            child: ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Settings'),
+              trailing: const Icon(Icons.chevron_right),
+            ),
+          ),
+
+          Card(
+            color: const Color(0xff151b25),
+            child: ListTile(
+              leading: const Icon(Icons.security),
+              title: const Text('Security'),
+              trailing: const Icon(Icons.chevron_right),
+            ),
+          ),
+
+          const SizedBox(height: 20),
+
+          OutlinedButton.icon(
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const LoginPage(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.logout),
+            label: const Text('Logout'),
+          ),
+        ],
+      ),
+    );
+  }
+}
